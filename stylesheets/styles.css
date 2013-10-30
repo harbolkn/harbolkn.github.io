@@ -188,9 +188,22 @@ footer {
 .accordion-heading{
 	border-radius: 6px;	
 	font-size: 1.17em;
-	line-height: 40px;
+	line-height: 30px;
 	width: 270px;
-	padding: 0px 0px 0px 10px;
+}
+
+.info{
+	padding-left: 10px;
+}
+.social{
+	width: 150px;
+	color: white;
+	padding-left: 5px;
+	margin-bottom: 10px;
+}
+
+.social img{
+	vertical-align: middle;
 }
 
 #projects{
@@ -198,6 +211,27 @@ footer {
 }
 #posts{
 	background: #00a0b0;
+}
+
+#twitter{
+	background: #00aced;
+}
+#twitter img{
+	max-width: 20%;
+}
+#github{
+	background: #494949;
+}
+#github img{
+	max-width: 15%;
+	padding: 0px 5px 4px 3px;
+}
+#email {
+	background: #cc333f;
+}
+#email img{
+	max-width: 17%;
+	padding: 0px 2px 1px 3px;
 }
 
 @media print, screen and (max-width: 960px) {
