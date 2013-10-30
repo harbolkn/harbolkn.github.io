@@ -183,6 +183,17 @@ footer {
   bottom:50px;
 }
 
+.button{
+	border-radius: 6px;
+	line-height: 30px;
+	width: 75px;
+	text-align: center;
+	vertical-align: middle;
+	background: grey;
+	position: relative;
+	left: 45%;
+	color: white;
+}
 
 
 
@@ -264,7 +275,7 @@ footer {
 	margin-bottom: .5em;
 }
 .result_image{
-	width: 200px;
+	width: 170px;
 	min-height: 28px;
 	margin-right: 1em;
 	float: left;
