@@ -33,7 +33,7 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color:#39c;
+  color:#00a0b0;
   font-weight:400;
   text-decoration:none;
 }
@@ -181,6 +181,23 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+}
+
+.accordion{
+}
+.accordion-heading{
+	border-radius: 6px;	
+	font-size: 1.17em;
+	line-height: 40px;
+	width: 270px;
+	padding: 0px 0px 0px 10px;
+}
+
+#projects{
+	background: #e72;
+}
+#posts{
+	background: #00a0b0;
 }
 
 @media print, screen and (max-width: 960px) {
