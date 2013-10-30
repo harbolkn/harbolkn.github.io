@@ -192,7 +192,6 @@ footer {
 	border-radius: 6px;	
 	font-size: 1.17em;
 	line-height: 30px;
-	width: 400px;
 	color: white;
 }
 
@@ -253,20 +252,19 @@ footer {
 
 .result{
 	overflow: hidden;
-	padding-bottom: 18px;
 	margin-bottom: 20px;
-	border-bottom: 1px solid #e4e4e4;
+	border-bottom: 2px solid #e4e4e4;
 	width: 100%;
 }
 
-.result_title{
-	font-weight: normal;
+.result_title a{
+	font-weight: bold;
 	font-size: 15px;
 	line-height: 19px;
 	margin-bottom: .5em;
 }
 .result_image{
-	width: 150px;
+	width: 200px;
 	min-height: 28px;
 	margin-right: 1em;
 	float: left;
