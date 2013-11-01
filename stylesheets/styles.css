@@ -201,15 +201,6 @@ iframe {
 	border: 1px solid #dedede;
 }
 
-iframe:not([seamless]) {
-	border: 2px inset;
-	border-image-source: initial;
-	border-image-slice: initial;
-	border-image-width: initial;
-	border-image-ouset: initial;
-	border-image-repeat: initial;
-}
-
 .button{
 	border-radius: 6px;
 	line-height: 30px;
