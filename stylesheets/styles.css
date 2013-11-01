@@ -183,6 +183,21 @@ footer {
   bottom:50px;
 }
 
+iframe {
+	width: 960px;
+	height: 500px;
+	border: 1px solid #dedede;
+}
+
+iframe:not([seamless]) {
+	border: 2px inset;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-ouset: initial;
+	border-image-repeat: initial;
+}
+
 .button{
 	border-radius: 6px;
 	line-height: 30px;
