@@ -153,7 +153,7 @@ header ul li + li + li {
   width:89px;
 }
 
-header ul a strong {
+aside header ul a strong {
   font-size:14px;
   display:block;
   color:#222;
@@ -181,6 +181,18 @@ footer {
   float:left;
   position:fixed;
   bottom:50px;
+}
+
+aside, .comment{
+	color: #636363;	
+}
+
+aside {
+	font-size: small;
+	left: 780px;
+	position: absolute;
+	text-align: right;
+	width: 180px;
 }
 
 iframe {
