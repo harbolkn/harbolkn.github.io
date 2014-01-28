@@ -151,6 +151,11 @@ img {
   -ms-box-shadow: 0 0 5px #ebebeb;
 }
 
+img.headshot{
+    align: right;
+    border: 3px;
+}
+
 pre, code {
   width: 100%;
   color: #222;
