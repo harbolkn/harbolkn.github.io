@@ -153,16 +153,7 @@ header ul li + li + li {
   width:89px;
 }
 
-aside {
-	color: #636363;	
-	font-size: small;
-	left: 780px;
-	position: absolute;
-	text-align: right;
-	width: 180px;
-}
-
-aside header ul a strong {
+header ul a strong {
   font-size:14px;
   display:block;
   color:#222;

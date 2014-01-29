@@ -3,66 +3,92 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 		<title>Hate Crimes</title>
 
+        <link rel="stylesheet" href="stylesheets/styles.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
 		<style>
-			body{
-				font-family: Sans-Serif;		
-				margin: 1em auto 4em auto;
-				position: relative;
-				tab-size: 2;
-				width: 960px;
-			}
-
-			h1{
-				display: block;
-				font-size: 40px;
-				font-weight: 200;
-				letter-spacing: -2px;
-				margin: .3em 0 .1em 0;
-				text-rendering: optimizeLegibility;
-			}
-
-			p {
-				line-height: 1.5em;
-				width: 720px;
-			}
-
-			aside{
-				color: #636363;
-				font-size: small;
-				left: 780px;
-				position: absolute;
-				text-align: right;
-				width: 180px;
-			}
+            aside{
+                color: #636363;
+                font-size: small;
+                position: relative;
+                text-align: right;
+                width: 180px;
+                padding-left: 760px;
+            }
 
 			iframe{
 				width: 960px;
 				height: 600px;
 				border: 1px solid #dedede;
+                margin-top: 20px;
 			}
 		</style>
 
 	</head>
 
 	<body>
-		<h1>US Hate Crimes: 2005 - 2012</h1>
-		<p></p>
+        <div class="wrapper">
+            <header>
+                <h1>Kris Harbold</h1>
 
-		<aside style="margin-top:-43px;">October 27, 2013</aside>
-		<iframe src="/hatecrimes_usa" marginwidth="0" marginheight="0" scrolling="no">
-		</iframe>
-		<p></p>
+                <!-- Social Accounts Here -->
 
-		<aside>
-			<a style="position:relative;top:6px;" href="/hatecrimes_usa" target="_blank">Open in a new window.</a>
-		</aside>
+                <!-- Twitter -->
+                <div class="accordion">
+                    <a href="http://j.mp/17vGPmC">
+                        <h3 class="accordion-heading social" id="twitter">
+                            <img src="images/twitter_bird.png">Twitter</h3>
+                    </a>
+                </div>
 
-		<p></p>
+                <!-- GitHub -->
+                <div class="accordion">
+                    <a href="http://j.mp/16kjeV6">
+                        <h3 class="accordion-heading social" id="github">
+                            <img src="images/blacktocat.png">Github</h3>
+                    </a>
+                </div>
 
-		<div class="readme"><p>This map shows the distribution of hate crimes filed with the FBI across the US between 2005 and 2012. The total hate crimes reported per state is based on the FBI's annual hate crime data set. Hate crimes per capita are determined using US census population estimates for each state. The distributions are a linear distribution based off the entire data set, this gives a better representation of the change in hate crimes in each state year to year, rather than just looking at a singular year. The distribution is bias toward states with small populations, especially those that get large numbers of visitors (for example DC), as the number of crimes committed in these states is proportional to the average occupancy of the state, not the number of residents.</p><p>Currently this map is just a basic analysis of known hate crimes across the US. Current development is being done to compare these trends against legislation being passed in these states.</p></div>
+                <!-- LinkedIn -->
+                <div class="accordion">
+                    <a href="http://j.mp/16kjljw">
+                        <h3 class="accordion-heading social" id="linkedin">
+                            <img src="images/in.png">LinkedIn</h3>
+                    </a>
+                </div>
+
+                <!-- Contact -->
+                <div class="accordion">
+                    <a href="mailto:harbolkn@gmail.com">
+                        <h3 class="accordion-heading social" id="email">
+                            <img src="images/mail.png">Contact</h3>
+                    </a>
+                </div>
+                <p><a href="/">← Back to Homepage</a></p>
+
+            </header>
+            <section>
+	            <h1>US Hate Crimes: 2005 - 2012</h1>
+	            <p></p>
+	
+	            <aside style="margin-top:-43px;">October 27, 2013</aside>
+	            <iframe src="http://kharbold.com/hatecrimes_usa" marginwidth="0" marginheight="0" scrolling="no">
+	            </iframe>
+	            <p></p>
+	
+	            <aside>
+	            <a style="position:relative;top:6px;" href="/hatecrimes_usa" target="_blank">Open in a new window.</a>
+	            </aside>
+	
+	            <p></p>
+	
+	            <div class="readme"><p>This map shows the distribution of hate crimes filed with the FBI across the US between 2005 and 2012. The total hate crimes reported per state is based on the FBI's annual hate crime data set. Hate crimes per capita are determined using US census population estimates for each state. The distributions are a linear distribution based off the entire data set, this gives a better representation of the change in hate crimes in each state year to year, rather than just looking at a singular year. The distribution is bias toward states with small populations, especially those that get large numbers of visitors (for example DC), as the number of crimes committed in these states is proportional to the average occupancy of the state, not the number of residents.</p><p>Currently this map is just a basic analysis of known hate crimes across the US. Current development is being done to compare these trends against legislation being passed in these states.</p></div>
+	
+            </section>
+        </div>
 	</body>
 </html>

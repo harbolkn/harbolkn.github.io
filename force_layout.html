@@ -7,63 +7,86 @@
 
 		<title>Force Layout</title>
 
+        <link rel="stylesheet" href="stylesheets/styles.css">
+
 		<style>
-			body{
-				font-family: Sans-Serif;		
-				margin: 1em auto 4em auto;
-				position: relative;
-				tab-size: 2;
-				width: 960px;
-                height: 400px;
-			}
-
-			h1{
-				display: block;
-				font-size: 40px;
-                font-weight: 200;
-				letter-spacing: -2px;
-				margin: .3em 0 .1em 0;
-				text-rendering: optimizeLegibility;
-			}
-
-			p {
-				line-height: 1.5em;
-				width: 720px;
-			}
-
 			aside{
 				color: #636363;
 				font-size: small;
-				left: 780px;
-				position: absolute;
+				position: relative;
 				text-align: right;
 				width: 180px;
+                padding-left: 760px;
 			}
 
 			iframe{
 				width: 960px;
 				height: 600px;
 				border: 1px solid #dedede;
+                margin-top: 20px;
 			}
 		</style>
 
 	</head>
 
 	<body>
-		<h1>Social Network Force Diagram</h1>
-		<p></p>
-
-		<aside style="margin-top:-43px;">January 6, 2014</aside>
-		<iframe src="/network_visualization" marginwidth="0" marginheight="0" scrolling="no">
-		</iframe>
-		<p></p>
-
-		<aside>
-			<a style="position:relative;top:6px;" href="/network_visualization" target="_blank">Open in a new window.</a>
-		</aside>
-
-		<p></p>
-
-        <div class="readme"><p>Paragraph 1</p><p>Paragraph 2</p></div>
+        <div class="wrapper">
+            <header>
+	            <h1>Kris Harbold</h1>
+	
+	            <!-- Social Accounts Here -->
+	
+	            <!-- Twitter -->
+	            <div class="accordion">
+	                <a href="http://j.mp/17vGPmC">
+	                    <h3 class="accordion-heading social" id="twitter">
+	                        <img src="images/twitter_bird.png">Twitter</h3>
+	                </a>
+	            </div>
+	
+	            <!-- GitHub -->
+	            <div class="accordion">
+	                <a href="http://j.mp/16kjeV6">
+	                    <h3 class="accordion-heading social" id="github">
+	                        <img src="images/blacktocat.png">Github</h3>
+	                </a>
+	            </div>
+	
+	            <!-- LinkedIn -->
+	            <div class="accordion">
+	                <a href="http://j.mp/16kjljw">
+	                    <h3 class="accordion-heading social" id="linkedin">
+	                        <img src="images/in.png">LinkedIn</h3>
+	                </a>
+	            </div>
+	
+	            <!-- Contact -->
+	            <div class="accordion">
+	                <a href="mailto:harbolkn@gmail.com">
+	                    <h3 class="accordion-heading social" id="email">
+	                        <img src="images/mail.png">Contact</h3>
+	                </a>
+	            </div>
+	            <p><a href="/">← Back to Homepage</a></p>
+	
+            </header>
+            <section>
+	            <h1>Social Network Force Diagram</h1>
+	            <p></p>
+	
+	            <aside style="margin-top:-43px;">January 6, 2014</aside>
+	            <iframe src="http://kharbold.com/network_visualization" marginwidth="0" marginheight="0" scrolling="no">
+	            </iframe>
+	            <p></p>
+	
+	            <aside>
+	            <a style="position:relative;top:6px;" href="/network_visualization" target="_blank">Open in a new window.</a>
+	            </aside>
+	
+	            <p></p>
+	
+	            <div class="readme"><p>Paragraph 1</p><p>Paragraph 2</p></div>
+            </section>
+        </div>
 	</body>
 </html>
