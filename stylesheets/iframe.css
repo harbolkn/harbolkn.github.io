@@ -3,7 +3,7 @@ aside{
     font-size: small;
     text-align: right;
     width: 180px;
-    padding-left: 600px;
+    padding-left: 700px;
 }
 
 iframe{
@@ -16,4 +16,10 @@ iframe{
     font-size: 14px;
     display: block;
     color: black;
+}
+
+.pdf{
+    width: 900px;
+    height: 1080px;
+    padding-top: 20px;
 }
