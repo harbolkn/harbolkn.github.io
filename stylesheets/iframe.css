@@ -3,11 +3,11 @@ aside{
     font-size: small;
     text-align: right;
     width: 180px;
-    padding-left: 760px;
+    padding-left: 600px;
 }
 
 iframe{
-    width: 960px;
+    width: 900px;
     margin-top: 20px;
     border: none;
 }
