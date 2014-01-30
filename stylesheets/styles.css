@@ -197,9 +197,6 @@ footer {
 }
 
 
-
-.accordion{
-}
 .accordion-heading{
 	border-radius: 6px;	
 	font-size: 1.17em;
@@ -283,8 +280,9 @@ footer {
 }
 .result_blurb{
 	font-style: italic;
-	width: 260px;
+	width: 350px;
 	float: left;
+    margin-left: 20px;
 }
 .result_links{
 	clear: left;

@@ -1,0 +1,19 @@
+aside{
+    color: #636363;
+    font-size: small;
+    text-align: right;
+    width: 180px;
+    padding-left: 760px;
+}
+
+iframe{
+    width: 960px;
+    margin-top: 20px;
+    border: none;
+}
+
+.readme{
+    font-size: 14px;
+    display: block;
+    color: black;
+}
