@@ -3,7 +3,8 @@ aside{
     font-size: small;
     text-align: right;
     width: 180px;
-    padding-left: 700px;
+    float: right;
+    padding-right: 200px;
 }
 
 iframe{
