@@ -64,7 +64,7 @@
 
                 <div class="readme">
                     <h3>Intro</h3>
-                    <p>The visualization shows the users Facebook social network as visualized using the Force Layout in D3. The data is extracted using the Facebook API and Facebook Query Language (FQL). Each node in the network represents a friend, each edge a connection between those friends. The wait of each edge is determined by the D3 Force Layout function, while the size and color of each node is determined by it's Page Rank value, explained below.</p>
+                    <p>The visualization above shows your Facebook network. The data to render it is extracted using the Facebook API and Facebook Query Language (FQL). Each node in the network represents a friend, each edge a connection between those friends. They are visualized in a force type layout, rendered using D3.js. The wait of each edge, or the length of the edge, represents how interconnected a node is to another node.  Nodes with share a large number of mutual connections will have higher waits than those with fewer. These waits move the layout into social clusters, tending to represent different social groups you may be a part of. The size and color of each node is determined by it's Page Rank value, a value that estimates how relevant, or central, that node is, to connecting parts of the network.</p>
 
                     <h3>Facebook API</h3>
                     <p>Overview of API calling</p>
