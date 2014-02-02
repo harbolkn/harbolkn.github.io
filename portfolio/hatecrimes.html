@@ -81,7 +81,39 @@
 
                 <p></p>
 
-                <div class="readme"><p>This map shows the distribution of hate crimes filed with the FBI across the US between 2005 and 2012. The total hate crimes reported per state is based on the FBI's annual hate crime data set. Hate crimes per capita are determined using US census population estimates for each state. The distributions are a linear distribution based off the entire data set, this gives a better representation of the change in hate crimes in each state year to year, rather than just looking at a singular year. The distribution is bias toward states with small populations, especially those that get large numbers of visitors (for example DC), as the number of crimes committed in these states is proportional to the average occupancy of the state, not the number of residents.</p><p>Currently this map is just a basic analysis of known hate crimes across the US. Current development is being done to compare these trends against legislation being passed in these states.</p></div>
+                <div class="readme">
+                    <h3>Intro</h3>
+                    <p>This map shows the distribution of hate crimes across the US from 2005 to 2012.  Data is derived from FBI hate crime statistics published each year, and US census data. The map is rendered using D3.js using the Albers projection.  Coloring is based off the number of hate crimes committed in each state normalized based off the population of the state.</p>
+
+                    <h3>Data Aggregation</h3>
+                    <p></p>
+
+                    <h3>Building the Map</h3>
+                    <p></p>
+                    
+                    <h3>Hate Crime Distribution</h3>
+                    <p>The colors are derived from a linear distribution based off per capita data for all years of the data set. By scaling based off all years the data is able to show year to year change, rather than just state to state within a year.</p> 
+                    
+                    <h3>Map Bias</h3>
+                    <p>Distributions are bias toward low population states. Since the data determines per capita rates, singular crimes in low population states have greater impact on the per capita crime rate.  Those states with small populations that have high tourism industries are effected even more since crimes against or by non-residents also impact crime rates.  This effect especially impacts states such as D.C. and Hawaii.</p> 
+
+                    <h3>Challenges</h3>
+                    <ul>
+                        <li>State Naming</li>
+                        <p>Resolving state names from FBI data, especially two work names, to state abbreviations for TopoJSON referencing.</p>
+                        <li>Data Irregularities</li>
+                        <p>Dealing with states with no crimes that year</p>
+                    </ul>
+
+                    <h3>Future Development</h3>
+                    <ul>
+                        <li>Bayesian Distribution</li>
+                            <p>Base coloring based on Bayesian distribution. Visualize states either far above or below the mean. State below specifically are under visualized currently. Consistently low numbers of hate crimes could allude to bad enforcement of federal hate crime legislation.</p>
+                        <li>Legislation Analysis</li>
+                            <p>Currently this map is just a basic analysis of known hate crimes across the US. Development is being done to compare trends against legislation passed regarding hate crime. The final goal is to determine what type of legislation and enforcement effect hate crimes the most. A further objective is to determine which states need to improve their legislation or enforcement procedures the most.</p>
+                    </ul>
+                
+                </div>
 
             </div>
             </section>
