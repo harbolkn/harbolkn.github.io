@@ -86,31 +86,37 @@
                     <p>This map shows the distribution of hate crimes across the US from 2005 to 2012.  Data is derived from FBI hate crime statistics published each year, and US census data. The map is rendered using D3.js using the Albers projection.  Coloring is based off the number of hate crimes committed in each state normalized based off the population of the state.</p>
 
                     <h3>Data Aggregation</h3>
-                    <p></p>
+                    <p>Data is aggregated from two main sourced. FBI data is gathered from annual Uniform Crime Reports found <a href="http://www.fbi.gov/about-us/cjis/ucr/hate-crime" target="_blank">here</a>. These reports don't necessarily represent all hate crimes occurring across the nation as agency participation in reporting is voluntary. <br />
+                    Census data is used to estimate the population of each state. Populations are for the most part estimated since the census is only conducted periodically. The number of crimes committed divided by the population gives the per capita crime rate. Population estimates are downloaded from <a href="http://www.census.gov/popest" target="_blank">here</a>.</p>
 
                     <h3>Building the Map</h3>
-                    <p></p>
+                    <p>D3.js was used for data visualization. D3 is a Javascript library allowing for manipulating documents based on data. Map rendering uses TopoJSON, an extension of GeoJSON.  TopoJSON allows for massively reduced map file sizes, usually up to 85% smaller than GeoJSON files. State names in the map file are used to id line segments that correspond with state boarders.  These ids are then later referenced to color states by their crime distribution.</p>
                     
                     <h3>Hate Crime Distribution</h3>
-                    <p>The colors are derived from a linear distribution based off per capita data for all years of the data set. By scaling based off all years the data is able to show year to year change, rather than just state to state within a year.</p> 
+                    <p>Colors for crime distribution are derived from a linear scale based off per capita crime data.  Date in the set is for all years of the data set, rather than just one. By off all years the data is able to show year to year change, rather than just state to state difference within a year.</p> 
                     
                     <h3>Map Bias</h3>
-                    <p>Distributions are bias toward low population states. Since the data determines per capita rates, singular crimes in low population states have greater impact on the per capita crime rate.  Those states with small populations that have high tourism industries are effected even more since crimes against or by non-residents also impact crime rates.  This effect especially impacts states such as D.C. and Hawaii.</p> 
+                    <p>Crime rates are bias toward low population states and states with high population coverage. Some state have a very low number of participating agencies, artificially lowering the crime rate due to a large number of crimes going unreported. Low population states cause singular crimes to have a greater impact on the crime rate. Those states with small populations that have high tourism industries are effected even more, crimes against, or by, non-residents are accounted as crime within the state.  Such effected states include states such as D.C. and Hawaii.</p> 
 
                     <h3>Challenges</h3>
                     <ul>
                         <li>State Naming</li>
                         <p>Resolving state names from FBI data, especially two work names, to state abbreviations for TopoJSON referencing.</p>
+
                         <li>Data Irregularities</li>
                         <p>Dealing with states with no crimes that year</p>
+
                     </ul>
 
                     <h3>Future Development</h3>
                     <ul>
                         <li>Bayesian Distribution</li>
                             <p>Base coloring based on Bayesian distribution. Visualize states either far above or below the mean. State below specifically are under visualized currently. Consistently low numbers of hate crimes could allude to bad enforcement of federal hate crime legislation.</p>
+
                         <li>Legislation Analysis</li>
                             <p>Currently this map is just a basic analysis of known hate crimes across the US. Development is being done to compare trends against legislation passed regarding hate crime. The final goal is to determine what type of legislation and enforcement effect hate crimes the most. A further objective is to determine which states need to improve their legislation or enforcement procedures the most.</p>
+
+                        <li>Accounting for Population Coverage</li>
                     </ul>
                 
                 </div>
