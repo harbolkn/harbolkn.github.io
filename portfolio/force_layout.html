@@ -67,13 +67,15 @@
                     <p>The visualization above shows your Facebook network. The data to render it is extracted using the Facebook API and Facebook Query Language (FQL). Each node in the network represents a friend, each edge a connection between those friends. They are visualized in a force type layout, rendered using D3.js. The wait of each edge, or the length of the edge, represents how interconnected a node is to another node.  Nodes with share a large number of mutual connections will have higher waits than those with fewer. These waits move the layout into social clusters, tending to represent different social groups you may be a part of. The size and color of each node is determined by it's Page Rank value, a value that estimates how relevant, or central, that node is, to connecting parts of the network.</p>
 
                     <h3>Facebook API</h3>
-                    <p>Overview of API calling</p>
+                    <p></p>
 
                     <h3>Force Layout in d3</h3>
-                    <p>D3.js, the popular Javascript library, used for easily building beautiful data drive designs, was used to create the force directed graph.  D3 contains several different layouts, one of which is called the Force Layout.  This layout simulated forces between nodes in the data.  With each node being considered a charged particle, nodes either repel or attract each other. Links, or edged in the social graph, prevent repulsive forces. This causes the graph to become naturally structured keeping heavily interconnected nodes to cluster together and less connected nodes to separate.</p>
+                    <p>D3.js, the popular Javascript library used for easily building beautiful data drive designs, was used to create the force directed graph, making up the core of the visualization.  D3 contains several different layouts, one of which is called the Force Layout.  This layout simulated forces between nodes in the data, with each node being considered a charged particle.  Nodes can either repel or attract each other, while edges prevent repulsive forces. This causes the graph to become naturally structured, keeping heavily interconnected nodes clustered, and less connected nodes to separate.</p>
 
-                    <h3>Page Rank</h3>
-                    <p></p>
+                    <h3>PageRank</h3>
+                    <p>PageRank is an algorithm created by Google for determining the importance of pages on the internet.  It is used by the search company to deliver pages that are the most relevant to a user's search terms.  Its application however can be expanding to analyze any linked network, determining the most important nodes within the network.  In the visualization PageRank is used to size nodes, showing their importance to the network.</p>
+                    
+                    <p>A node is considered "important" if there is a high likelihood that a person randomly traversing the graph ends up at that node.  This likelihood is represented by the node's PageRank, a value between 0 to 1.  The rank of each node is calculated using voting theory.  An edge between node A to node B is considered a vote by A for B.  Votes can be represented in an adjacency matrix where each row and column represents a pair of nodes.  A value of 1 for pair {A,B} means an edge exists from A to B.  Because Facebook is an undirected graph, or a graph in which users share a mutual relationship with one another, each pair {A,B} = 1 must also have the pair {B,A} = 1.</p>
 
                     <h3>Challenges</h3>
                     <ul>
