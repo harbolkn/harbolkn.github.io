@@ -62,24 +62,27 @@
             </header>
             <section>
             <div style="padding-right: 150px;">
-                <h1>Social Network Force Diagram</h1> <p></p> <p>January 6, 2014</p> <iframe src="http://kharbold.com/network_visualization" height="600px" scrolling="no"> </iframe> <p></p> <p> <a style="position:relative;top:6px;" href="/network_visualization" target="_blank">Open in a new window.</a> </p>
-
-                <p></p>
+                <h1>Social Network Force Diagram</h1> 
+                <p></p> 
+                <p>January 6, 2014</p> 
+                <iframe src="http://kharbold.com/network_visualization" height="600px" scrolling="no"></iframe> 
+                <p></p> 
+                <p><a style="position:relative;top:6px;" href="/network_visualization" target="_blank">Open in a new window.</a></p>
 
                 <div class="readme">
                     <h3>Intro</h3>
-                    <p>The visualization above shows your Facebook network. The data to render it is extracted using the Facebook API and Facebook Query Language (FQL). Each node in the network represents a friend, each edge a connection between those friends. They are visualized in a force type layout, rendered using D3.js. The wait of each edge, or the length of the edge, represents how interconnected a node is to another node.  Nodes with share a large number of mutual connections will have higher waits than those with fewer. These waits move the layout into social clusters, tending to represent different social groups you may be a part of. The size and color of each node is determined by it's Page Rank value, a value that estimates how relevant, or central, that node is, to connecting parts of the network.</p>
+                    <p>The visualization above shows your Facebook network. The data to render it is extracted using the Facebook API and Facebook Query Language (FQL). Each node in the network represents a friend, each edge a connection between those friends. They are visualized in a force directed graph, rendered using D3.js. The wait of each edge, or the length of the edge, represents how interconnected a node is to another node.  Nodes which share a large number of mutual connections will have higher weights than those with fewer. These weights move the layout into clusters, tending to represent different social groups you may be a part of. The size and color of each node is determined by it's PageRank, a value that estimates how central that node is to connecting parts of the network.</p>
 
                     <h3>Facebook API</h3>
                     <p></p>
 
                     <h3>Force Layout in d3</h3>
-                    <p>D3.js, the popular Javascript library used for easily building beautiful data drive designs, was used to create the force directed graph, making up the core of the visualization.  D3 contains several different layouts, one of which is called the Force Layout.  This layout simulated forces between nodes in the data, with each node being considered a charged particle.  Nodes can either repel or attract each other, while edges prevent repulsive forces. This causes the graph to become naturally structured, keeping heavily interconnected nodes clustered, and less connected nodes to separate.</p>
+                    <p>D3.js, the popular Javascript library used for easily building beautiful data drive designs, was used to create the force directed graph, making up the core of the visualization.  D3 contains several different layouts, one of which is called the Force Layout.  This layout simulated forces between nodes in the data, with each node being considered a charged particle.  Nodes can either repel or attract each other, while edges prevent repulsive forces. This causes the graph to become naturally structured, keeping heavily interconnected nodes clustered, and causing less connected nodes to separate.</p>
 
                     <h3>PageRank</h3>
-                    <p>PageRank is an algorithm created by Google for determining the importance of pages on the internet.  It is used by the search company to deliver pages that are the most relevant to a user's search terms.  Its application however can be expanding to analyze any linked network, determining the most important nodes within the network.  In the visualization PageRank is used to size nodes, showing their importance to the network.</p>
+                    <p>PageRank is an algorithm created by Google for determining the importance of web pages on the internet.  It is used by the search company to deliver links to sites that are the most relevant to a user's search.  Its application however can be expanding to analyze any linked network, determining the most important nodes within that network.  In the visualization PageRank is used to size nodes and color nodes.</p>
                     
-                    <p>A node is considered "important" if there is a high likelihood that a person randomly traversing the graph ends up at that node.  This likelihood is represented by the node's PageRank, a value between 0 to 1.  The rank of each node is calculated using voting theory.  An edge between node A to node B is considered a vote by A for B.  Votes can be represented in an adjacency matrix where each row and column represents a pair of nodes.  A value of 1 for pair {A,B} means an edge exists from A to B.  Because Facebook is an undirected graph, or a graph in which users share a mutual relationship with one another, each pair {A,B} = 1 must also have the pair {B,A} = 1.  An example of such a matrix is shown below.</p>
+                    <p>A node is considered "important" if there is a high likelihood that a person randomly traversing a graph will end up at that node.  This likelihood is represented by the node's PageRank, a value between 0 to 1.  The rank of each node is calculated using voting theory.  An edge between node A to node B is considered a vote by A for B.  Votes can be represented in an adjacency matrix where each row and column represents a pair of nodes.  A value of 1 for pair {A,B} means an edge exists from A to B.  Because Facebook is an undirected graph, or a graph in which users share a mutual relationship with one another, each pair {A,B} = 1 must also have the pair {B,A} = 1.  An example of such a matrix is shown below.</p>
 
                     <div class="graphic" id="a_matrix"></div>
                     <script>
@@ -92,11 +95,12 @@
                             [0, 0, 0, 1, 0, 0]
                         ]);
 
-                        draw_graph("#a_matrix", graph);
+                        d3.select("#a_matrix").call(draw, graph);
+                        d3.select("#a_matrix").call(matrix, graph);
 
                     </script>
 
-                    <p>The likelihood with which PageRank is based is actually just a probability.  To make the adjacency matrix represent probability the matrix is transformed into a Stochastic Matrix.  Each row in the matrix represents being on a node, the value of each column for that row is the probability of moving to that column's node from the row node.  So say we're at node A, and node A is connected to nodes B, D, and E.  The probability of moving to any of these nodes from A is equal for each node.  Since there are 3 edges coming from A, the probability of traversing any of these edges is 1/3.  Therefore, the value for the matrix pairs {A,B}, {A,D}, and {A,E} all equal 0.3.  Such a matrix is shown below.</p>
+                    <p>The likelihood with which PageRank is based is actually just a probability.  To make the adjacency matrix represent probabilities the matrix is transformed into a Stochastic Matrix.  Each row in the matrix represents a starting node, the value of each column for that row is the probability of moving to that column's node from the starting node.  So say we're at node A; node A is connected to nodes B, D, and E.  The probability of moving to any of these nodes from A is equal for each node.  Since there are 3 edges coming from A, the probability of traversing any of these edges is 1/3.  Therefore, the value for the matrix pairs {A,B}, {A,D}, and {A,E} all equal 0.3.  Such a matrix is shown below.</p>
 
                     <div class="graphic" id="s_matrix"></div>
                     <script>
@@ -109,18 +113,33 @@
                             [0, 0, 0, 1, 0, 0]
                         ]);
 
-                        draw_graph("#s_matrix", graph);
+                        d3.select("#s_matrix").call(draw, graph);
+                        d3.select("#s_matrix").call(matrix, graph);
 
                     </script>
 
-                    <p></p>
+                    <p>A damping factor is applied to this matrix to account for any nodes that are unconnected to the rest of the graph.  Once that is done the eigenvector centrality for each node is calculated, giving us each node's PageRank.</p>
+
+                    <h3>Eigenvector Centrality</h3>
+                    <p>Eigenvector centrality is a measure of the connectedness of each node in a network.  Nodes that have lots of connections, and whose connections have lots of connections, and so forth, have very high eigenvector centralities.  Nodes with these properties can be seen as general leaders within a network.</p>
+
+                    <p>Eigenvector Centralities are calculated through a process called power iteration.  In power iteration we create a vector the length of our matrix (number of nodes in the network).  After creating this vector we multiply it by our matrix.  Since our matrix is an n x n matrix, where n is the number of nodes, and our vector is a 1 x n vector, multiplying the two will result in a 1 x n vector.  We normalize this vector to all values in it add up to 1, and multiply this next vector with our matrix again.  This process is repeated for the number of iterations desired.</p>
+
+                    <p>The power iteration process represents what would happen if a simulation were actually run where a person started at a random node and selected edges to traverse at random.  The initial vector consists of all 1s so that we start our simulations from every node.  The result is a vector where each value represents the likelihood of ending up on a node having started at any other given node.</p>
 
                     <h3>Challenges</h3>
                     <ul>
+                        <li><b>Asynchronous Graph Retrieval</b></li>
+                        <li><b></b></li>
                     </ul>
 
                     <h3>Future Development</h3>
                     <ul>
+                        <li><b>Centrality Measure Options</b></li>
+                        <p>Allow user to select which measure of centrality they which to visualize.  Selections range from PageRank, eigenvector centrality, betweenness centrality, and closeness centrality.</p>
+
+                        <li><b>Color by Cluster</b></li>
+                        <p>Implement clustering algorithm to form groups within the network.  Color each node by their cluster instead of their centrality.</p>
                     </ul>
 
                 </div>

@@ -1,7 +1,5 @@
-var draw_graph = function(selection, graph) {
+var draw = function(selection, graph) {
     var width=300, height = 244;
-
-    var a_matrix = d3.select(selection);
 
     var data = {"nodes":new Array(), "links":new Array()};
     for(var i=0; i<graph.dimensions().rows; i++){
@@ -14,14 +12,15 @@ var draw_graph = function(selection, graph) {
         }
     }
 
-    var svg = a_matrix.append("div")
+    var svg = selection.append("div")
     .attr("class", "graph")
+    .attr("class", "left")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
 
     var force = d3.layout.force()
-    .charge(-120)
+    .charge(-500)
     .linkDistance(50)
     .size([width-10, height-10]);
 
@@ -66,9 +65,13 @@ var draw_graph = function(selection, graph) {
         });
     });
 
+}
+
+var matrix = function(selection, graph){
     // Draw Matrix
-    var matrix = a_matrix.append("div")
-    .attr("class", "matrix");
+    var matrix = selection.append("div")
+    .attr("class", "matrix")
+    .attr("class", "right");
 
     var color = d3.scale.linear()
     .domain([1,0])

@@ -381,13 +381,13 @@ div.graphic{
     float: none;
     margin-top: 10px;
 }
-div.graph{
+div.left{
     width: 50%;
     height: 250px;
     float: left;
     margin-bottom: 10px;
 }
-div.matrix{
+div.right{
     width: 50%;
     height: 250px;
     margin-bottom: 10px;
