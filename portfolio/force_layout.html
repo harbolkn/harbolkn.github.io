@@ -74,7 +74,35 @@
                     <p>The visualization above shows your Facebook network. The data to render it is extracted using the Facebook API and Facebook Query Language (FQL). Each node in the network represents a friend, each edge a connection between those friends. They are visualized in a force directed graph, rendered using D3.js. The wait of each edge, or the length of the edge, represents how interconnected a node is to another node.  Nodes which share a large number of mutual connections will have higher weights than those with fewer. These weights move the layout into clusters, tending to represent different social groups you may be a part of. The size and color of each node is determined by it's PageRank, a value that estimates how central that node is to connecting parts of the network.</p>
 
                     <h3>Facebook API</h3>
-                    <p></p>
+                    <p>Access to the API starts first with loading the Facebook SDK.  To load the SDK a call is made to the Facebook asynchronous initialization function FB.init().  Using this call certain options for the app can be set, including whether to enable cookies, check login status, and parse XFBML.</p>
+
+                    <p>Once the SDK is loaded, the app checks the authorization status for th user.  If the user is not logged in to Facebook, or hasn't authorized the app, the user is given the option to grant access at this point. With the user connected and authorized, API calls begin, pulling the user's friends and mutual friendships.</p>
+
+                    <p>Friend information is gathered using the Graph API.  Calling the API using FB.api('me/freinds',...) we get a dictionary response. The response.data is an array of dictionaries, each containing the name and id of a friend of the user.  The response is processed, setting the Force Layout's nodes equal to response.data, and creating an array of all friend ids.  A query is then run using FQL to retrieve all user id combinations where both users are friends with the user and with each other.  The result of this query is two user ids, becoming a graph link, the source of the link being the index of the first id in the id array, target being the index of the second id.  This function is shown below.</p>
+
+                    <pre><code>
+FB.api<span class="white">(</span><span class="red">"me/friends"</span>, <span class="blue">function</span><span class="white">(</span>response<span class="white">)</span><span class="blue">{</span>
+    graph.nodes = response.data;
+
+    <span class="blue">var</span> fids = response.data.map<span class="white">(</span><span class="blue">function</span><span class="white">(</span>entry<span class="white">)</span><span class="blue">{</span>
+        <span class="yellow">return</span> entry.id;
+    <span class="blue">}</span><span class="white">)</span>;
+
+    FB.api<span class="white">(</span><span class="red">"fql?q="</span> + <span class="yellow">escape</span><span class="white">(</span>
+    <span class="red">"SELECT uid1, uid2 " +
+    "FROM friend " +
+    "WHERE uid1 IN (SELECT uid2 FROM friend WHERE uid1=me()) AND " +
+    "      uid2 IN (SELECT uid2 FROM friend WHERE uid1=me())"</span>
+    <span class="white">)</span>, <span class="blue">function</span><span class="white">(</span>response<span class="white">)</span><span class="blue">{</span>
+        graph.links = response.data.map<span class="white">(</span><span class="blue">function</span><span class="white">(</span>rel<span class="white">)</span><span class="blue">{</span>
+            <span class="yellow">return</span><span class="blue">{</span>
+                source: fids.indexOf<span class="white">(</span>rel.uid1<span class="white">)</span>,
+                target: fids.indexOf<span class="white">(</span>rel.uid2<span class="white">)</span>
+            <span class="blue">}</span>;
+        <span class="blue">}</span><span class="white">)</span>;
+    <span class="blue">}</span><span class="white">)</span>;
+<span class="blue">}</span><span class="white">)</span>;
+                    </code></pre>
 
                     <h3>Force Layout in d3</h3>
                     <p>D3.js, the popular Javascript library used for easily building beautiful data drive designs, was used to create the force directed graph, making up the core of the visualization.  D3 contains several different layouts, one of which is called the Force Layout.  This layout simulated forces between nodes in the data, with each node being considered a charged particle.  Nodes can either repel or attract each other, while edges prevent repulsive forces. This causes the graph to become naturally structured, keeping heavily interconnected nodes clustered, and causing less connected nodes to separate.</p>

@@ -7,6 +7,7 @@ body {
   font-weight:300;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
@@ -54,6 +55,7 @@ ul{
   margin:0 auto;
 }
 
+
 blockquote {
   border-left:1px solid #e5e5e5;
   margin:0;
@@ -62,16 +64,33 @@ blockquote {
 }
 
 code, pre {
-  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
-  color:#333;
-  font-size:12px;
+  text-rendering: optimizeLegibility;  
+  display: block;
+  font-family: Monospace, Lato, "Levetica Neue", Helvetica, sans-serif;
+  color: #9A2EFE;
+  font-size:13px;
+}
+.blue{
+    color: #2E9AFE;
+}
+.red{
+    color: #FE2E2E;
+}
+.yellow{
+    color: #FACC2E;
+}
+.green{
+    color: #2EFE2E;
+}
+.white{
+    color: white;
 }
 
 pre {
   padding:8px 15px;
-  background: #f8f8f8;  
+  background: #2E2E2E;
   border-radius:5px;
-  border:1px solid #e5e5e5;
+  border:1px solid black;
   overflow-x: auto;
 }
 
