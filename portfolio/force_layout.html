@@ -104,13 +104,13 @@ FB.api<span class="white">(</span><span class="red">"me/friends"</span>, <span c
 <span class="blue">}</span><span class="white">)</span>;
                     </code></pre>
 
-                    <h3>Force Layout in d3</h3>
+                    <h3>Force Layout in D3</h3>
                     <p>D3.js, the popular Javascript library used for easily building beautiful data drive designs, was used to create the force directed graph, making up the core of the visualization.  D3 contains several different layouts, one of which is called the Force Layout.  This layout simulated forces between nodes in the data, with each node being considered a charged particle.  Nodes can either repel or attract each other, while edges prevent repulsive forces. This causes the graph to become naturally structured, keeping heavily interconnected nodes clustered, and causing less connected nodes to separate.</p>
 
                     <h3>PageRank</h3>
                     <p>PageRank is an algorithm created by Google for determining the importance of web pages on the internet.  It is used by the search company to deliver links to sites that are the most relevant to a user's search.  Its application however can be expanding to analyze any linked network, determining the most important nodes within that network.  In the visualization PageRank is used to size nodes and color nodes.</p>
                     
-                    <p>A node is considered "important" if there is a high likelihood that a person randomly traversing a graph will end up at that node.  This likelihood is represented by the node's PageRank, a value between 0 to 1.  The rank of each node is calculated using voting theory.  An edge between node A to node B is considered a vote by A for B.  Votes can be represented in an adjacency matrix where each row and column represents a pair of nodes.  A value of 1 for pair {A,B} means an edge exists from A to B.  Because Facebook is an undirected graph, or a graph in which users share a mutual relationship with one another, each pair {A,B} = 1 must also have the pair {B,A} = 1.  An example of such a matrix is shown below.</p>
+                    <p>A node is considered "important" if there is a high likelihood that a person randomly traversing a graph will end up at that node.  This likelihood is represented by the node's PageRank, a value between 0 to 1.  The rank of each node is calculated using voting theory.  An edge between node A to node B is considered a vote by A for B.  Votes can be represented in an adjacency matrix where each row and column represents a pair of nodes.  A value of 1 for pair { A , B } means an edge exists from A to B.  Because Facebook is an undirected graph, or a graph in which users share a mutual relationship with one another, each pair { A , B } = 1 must also have the pair { B , A } = 1.  An example of such a matrix is shown below.</p>
 
                     <div class="graphic" id="a_matrix"></div>
                     <script>
@@ -128,7 +128,7 @@ FB.api<span class="white">(</span><span class="red">"me/friends"</span>, <span c
 
                     </script>
 
-                    <p>The likelihood with which PageRank is based is actually just a probability.  To make the adjacency matrix represent probabilities the matrix is transformed into a Stochastic Matrix.  Each row in the matrix represents a starting node, the value of each column for that row is the probability of moving to that column's node from the starting node.  So say we're at node A; node A is connected to nodes B, D, and E.  The probability of moving to any of these nodes from A is equal for each node.  Since there are 3 edges coming from A, the probability of traversing any of these edges is 1/3.  Therefore, the value for the matrix pairs {A,B}, {A,D}, and {A,E} all equal 0.3.  Such a matrix is shown below.</p>
+                    <p>The likelihood with which PageRank is based is actually just a probability.  To make the adjacency matrix represent probabilities the matrix is transformed into a Stochastic Matrix.  Each row in the matrix represents a starting node, the value of each column for that row is the probability of moving to that column's node from the starting node.  So say we're at node A; node A is connected to nodes B, D, and E.  The probability of moving to any of these nodes from A is equal for each node.  Since there are 3 edges coming from A, the probability of traversing any of these edges is 1/3.  Therefore, the value for the matrix pairs { A , B }, { A , D }, and { A , E } all equal 0.3.  Such a matrix is shown below.</p>
 
                     <div class="graphic" id="s_matrix"></div>
                     <script>
