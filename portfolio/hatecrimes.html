@@ -93,7 +93,7 @@
                     <p>D3.js was used for data visualization.  D3 is a Javascript library allowing for manipulating documents based on data.  Map rendering uses TopoJSON, an extension of GeoJSON.  TopoJSON allows for massively reduced map file sizes, usually up to 85% smaller than GeoJSON files.  State names in the map file are used to id line segments that correspond with state boarders.  These ids are then later referenced to color states by their crime distribution.</p>
                     
                     <h3>Hate Crime Distribution</h3>
-                    <p>Colors for crime distribution are derived from a linear scale based off per capita crime data.  Data in the set is for all years of the data set, rather than just one.  By including all years we're able to see year to year change, rather than just state to state difference within a year.</p> 
+                    <p>Colors on the map are based off a linear scale.  This scale gives darker colors (blue and red) to per capita crimes rates several standard deviations from the mean.  The mean is based on the average per capita crime rate for any given year.  Statistically speaking most states should fall within one standard deviation from the mean.  Those states with crime rate several deviations above or below the mean are most likely to be experiencing some form of anomalous behavior, whether in reporting or crimes themselves.</p> 
                     
                     <h3>Map Bias</h3>
                     <p>Crime rates are bias toward low population states and states with high population coverage.  Some state have a very low number of participating agencies, artificially lowering the crime rate due to a large number of crimes going unreported.  Low population states cause singular crimes to have a greater impact on the crime rate.  Those states with small populations that have high tourism industries are effected even more, crimes against, or by, non-residents are accounted as crime within the state.  Such effected states include states such as D.C. and Hawaii.</p> 
@@ -106,13 +106,13 @@
 
                         <p>Estimating the number of hate crimes in this way creates a source for error in the data.  States with low reporting have a lower level precision versus states with high reporting.  This low precision data could be either over estimated or underestimated vastly.  Over estimations could occur if reporting agencies are generally located in urban areas or areas with higher crime rates.  Under estimation could occur in regions with stigma against reporting, this would lead numbers reported to be lower than realistically occur.</p>
 
+                        <li><b>Anomaly Detection</b></li>
+                        <p></p>
+
                     </ul>
 
                     <h3>Future Development</h3>
                     <ul>
-                        <li><b>Bayesian Distribution</b></li>
-                        <p>Base coloring based on Bayesian distribution.  Visualize states either far above or below the mean.  State below specifically are under visualized currently.  Consistently low numbers of hate crimes could allude to bad enforcement of federal hate crime legislation.</p>
-
                         <li><b>Legislation Analysis</b></li>
                         <p>Currently this map is just a basic analysis of known hate crimes across the US.  Development is being done to compare trends against legislation passed regarding hate crime.  The final goal is to determine what type of legislation and enforcement effect hate crimes the most.  A further objective is to determine which states need to improve their legislation or enforcement procedures the most.</p>
                     </ul>
